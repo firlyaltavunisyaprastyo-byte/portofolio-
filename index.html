@@ -1,0 +1,1298 @@
+<!doctype html>
+<html lang="id">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kuliner Khas Subang</title>
+  <script src="/_sdk/element_sdk.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #1f2937;
+      background: #ffffff;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      overflow-x: hidden;
+    }
+
+    /* Header Navigation */
+    header {
+      background: linear-gradient(135deg, #166534 0%, #15803d 100%);
+      color: white;
+      padding: 1.2rem 0;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 20px rgba(22, 101, 52, 0.3);
+    }
+
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 2.5rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      transition: all 0.3s;
+      font-weight: 500;
+      font-size: 1.05rem;
+      position: relative;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 3px;
+      background: #86efac;
+      transition: width 0.3s;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    nav a:hover {
+      color: #86efac;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.8rem;
+      cursor: pointer;
+    }
+
+    /* Hero Section */
+    .hero {
+      margin-top: 80px;
+      background: linear-gradient(135deg, rgba(22, 101, 52, 0.95) 0%, rgba(21, 128, 61, 0.95) 100%), 
+                  url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 600"><rect fill="%2315803d" width="1400" height="600"/><circle fill="%23166534" cx="300" cy="150" r="120" opacity="0.3"/><circle fill="%23166534" cx="1000" cy="400" r="150" opacity="0.3"/><circle fill="%23166534" cx="1200" cy="200" r="80" opacity="0.3"/><path d="M0,300 Q350,200 700,300 T1400,300" fill="none" stroke="%2386efac" stroke-width="2" opacity="0.2"/></svg>');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 8rem 2rem 6rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 30% 50%, rgba(134, 239, 172, 0.1) 0%, transparent 50%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1.5rem;
+      text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+      animation: fadeInDown 1s ease;
+    }
+
+    .hero p {
+      font-size: 1.4rem;
+      margin-bottom: 2.5rem;
+      opacity: 0.95;
+      animation: fadeInUp 1s ease 0.3s backwards;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      animation: fadeInUp 1s ease 0.6s backwards;
+    }
+
+    .cta-button {
+      background: #22c55e;
+      color: white;
+      padding: 1.2rem 3rem;
+      border: none;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s;
+      box-shadow: 0 6px 20px rgba(34, 197, 94, 0.4);
+    }
+
+    .cta-button:hover {
+      background: #16a34a;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(22, 163, 74, 0.5);
+    }
+
+    .cta-button.secondary {
+      background: transparent;
+      border: 2px solid white;
+      color: white;
+    }
+
+    .cta-button.secondary:hover {
+      background: white;
+      color: #166534;
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 5rem 2rem;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 3rem;
+      color: #166534;
+      margin-bottom: 1rem;
+      position: relative;
+      font-weight: 700;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      font-size: 1.2rem;
+      color: #6b7280;
+      margin-bottom: 4rem;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 5px;
+      background: linear-gradient(90deg, #22c55e, #86efac);
+      border-radius: 3px;
+    }
+
+    /* Menu Section */
+    #menu {
+      background: linear-gradient(180deg, #f0fdf4 0%, #ffffff 100%);
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2.5rem;
+      margin-top: 3rem;
+    }
+
+    .menu-card {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+    }
+
+    .menu-card:hover {
+      transform: translateY(-15px) scale(1.02);
+      box-shadow: 0 20px 40px rgba(22, 101, 52, 0.2);
+    }
+
+    .menu-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, #22c55e, #86efac);
+    }
+
+    .menu-icon {
+      background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+      padding: 3.5rem;
+      text-align: center;
+      font-size: 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .menu-icon::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+      animation: pulse 3s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 0.5; }
+      50% { transform: scale(1.1); opacity: 0.8; }
+    }
+
+    .menu-content {
+      padding: 2rem;
+    }
+
+    .menu-content h3 {
+      color: #166534;
+      font-size: 1.7rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    .menu-content p {
+      color: #6b7280;
+      margin-bottom: 1.5rem;
+      line-height: 1.7;
+      font-size: 1.05rem;
+    }
+
+    .price {
+      color: #22c55e;
+      font-size: 1.6rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+
+    .order-btn {
+      width: 100%;
+      background: #166534;
+      color: white;
+      padding: 1rem;
+      border: none;
+      border-radius: 12px;
+      font-weight: bold;
+      font-size: 1.05rem;
+      cursor: pointer;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .order-btn::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      background: rgba(255,255,255,0.2);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      transition: width 0.6s, height 0.6s;
+    }
+
+    .order-btn:hover::before {
+      width: 300px;
+      height: 300px;
+    }
+
+    .order-btn:hover {
+      background: #15803d;
+      transform: scale(1.05);
+    }
+
+    /* Gallery Section */
+    #gallery {
+      background: #ffffff;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .gallery-item {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: all 0.4s;
+      background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
+      aspect-ratio: 1;
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.05);
+      box-shadow: 0 15px 40px rgba(22, 101, 52, 0.3);
+    }
+
+    .gallery-icon {
+      font-size: 8rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      transition: transform 0.4s;
+    }
+
+    .gallery-item:hover .gallery-icon {
+      transform: scale(1.1) rotate(5deg);
+    }
+
+    .gallery-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(22, 101, 52, 0.95), transparent);
+      color: white;
+      padding: 2rem;
+      transform: translateY(100%);
+      transition: transform 0.4s;
+    }
+
+    .gallery-item:hover .gallery-overlay {
+      transform: translateY(0);
+    }
+
+    .gallery-overlay h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .gallery-overlay p {
+      font-size: 0.95rem;
+      opacity: 0.9;
+    }
+
+    /* Contact & Map Section */
+    #contact {
+      background: linear-gradient(180deg, #f0fdf4 0%, #dcfce7 100%);
+    }
+
+    .contact-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin-top: 3rem;
+    }
+
+    .contact-info {
+      background: white;
+      padding: 3rem;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: start;
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+      padding: 1.5rem;
+      background: #f0fdf4;
+      border-radius: 15px;
+      transition: all 0.3s;
+    }
+
+    .contact-item:hover {
+      background: #dcfce7;
+      transform: translateX(10px);
+    }
+
+    .contact-icon {
+      font-size: 2.5rem;
+      color: #22c55e;
+      min-width: 60px;
+      height: 60px;
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(34, 197, 94, 0.2);
+    }
+
+    .contact-details h3 {
+      color: #166534;
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-details p {
+      color: #6b7280;
+      line-height: 1.7;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .social-btn {
+      width: 50px;
+      height: 50px;
+      background: #22c55e;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .social-btn:hover {
+      background: #16a34a;
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(34, 197, 94, 0.4);
+    }
+
+    .map-container {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      position: relative;
+      min-height: 500px;
+    }
+
+    .map-placeholder {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem;
+      text-align: center;
+    }
+
+    .map-icon {
+      font-size: 6rem;
+      margin-bottom: 1.5rem;
+      color: #22c55e;
+    }
+
+    .map-placeholder h3 {
+      color: #166534;
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .map-placeholder p {
+      color: #6b7280;
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .map-btn {
+      background: #22c55e;
+      color: white;
+      padding: 1rem 2.5rem;
+      border: none;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .map-btn:hover {
+      background: #16a34a;
+      transform: scale(1.05);
+      box-shadow: 0 8px 25px rgba(34, 197, 94, 0.4);
+    }
+
+    /* Contact Form */
+    .contact-form {
+      background: white;
+      padding: 3rem;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      margin-top: 3rem;
+    }
+
+    .form-title {
+      color: #166534;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      color: #166534;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      font-size: 1.05rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 1rem;
+      border: 2px solid #dcfce7;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-family: inherit;
+      transition: all 0.3s;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #22c55e;
+      box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.1);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .submit-btn {
+      width: 100%;
+      background: #166534;
+      color: white;
+      padding: 1.2rem;
+      border: none;
+      border-radius: 12px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .submit-btn:hover {
+      background: #15803d;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(22, 101, 52, 0.3);
+    }
+
+    /* Footer */
+    footer {
+      background: linear-gradient(135deg, #166534 0%, #15803d 100%);
+      color: white;
+      padding: 3rem 2rem 2rem;
+      text-align: center;
+    }
+
+    .footer-content {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s;
+      font-size: 1.05rem;
+    }
+
+    .footer-links a:hover {
+      color: #86efac;
+    }
+
+    .footer-text {
+      opacity: 0.9;
+      font-size: 1.05rem;
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.2);
+    }
+
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: linear-gradient(135deg, #166534 0%, #15803d 100%);
+      color: white;
+      padding: 1.2rem 2rem;
+      border-radius: 12px;
+      box-shadow: 0 8px 25px rgba(22, 101, 52, 0.4);
+      display: none;
+      z-index: 2000;
+      animation: slideIn 0.4s ease;
+      min-width: 300px;
+    }
+
+    .toast.show {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .toast-icon {
+      font-size: 1.5rem;
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translateX(400px);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .contact-wrapper {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #166534;
+        flex-direction: column;
+        padding: 1.5rem;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      }
+
+      nav ul.active {
+        display: flex;
+      }
+
+      .mobile-menu-btn {
+        display: block;
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero p {
+        font-size: 1.2rem;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .section-title {
+        font-size: 2.2rem;
+      }
+
+      .menu-grid,
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-wrapper {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-links {
+        flex-direction: column;
+        gap: 1rem;
+      }
+    }
+  </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+ </head>
+ <body>
+  <header>
+   <div class="nav-container">
+    <div class="logo"><span>🍜</span> <span id="site-title">Kuliner Khas Subang</span>
+    </div><button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+    <nav>
+     <ul id="nav-menu">
+      <li><a href="#home">Beranda</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#gallery">Galeri</a></li>
+      <li><a href="#contact">Kontak</a></li>
+     </ul>
+    </nav>
+   </div>
+  </header>
+  <main>
+   <section class="hero" id="home">
+    <div class="hero-content">
+     <h1 id="site-title-hero">Kuliner Khas Subang</h1>
+     <p id="tagline">Cita Rasa Autentik dari Tanah Subang</p>
+     <div class="hero-buttons"><button class="cta-button" onclick="scrollToSection('menu')">Lihat Menu</button> <button class="cta-button secondary" onclick="scrollToSection('contact')">Hubungi Kami</button>
+     </div>
+    </div>
+   </section>
+   <section id="menu" class="container">
+    <h2 class="section-title" id="menu-title">Menu Spesial Kami</h2>
+    <p class="section-subtitle">Sajian Kuliner Terbaik Khas Subang yang Wajib Dicoba</p>
+    <div class="menu-grid">
+     <div class="menu-card">
+      <div class="menu-icon">
+       <img src="https://cdn1-production-images-kly.akamaized.net/h6GbbMvmpxBICRoLZc_Xz7V8HO0=/800x800/smart/filters:quality(75):strip_icc()/kly-media-production/medias/4928905/original/047372600_1724730046-Tutut_Kuah_Pedas.jpg"
+      </div>
+      <div class="menu-content">
+       <h3>Tutut Pedas</h3>
+       <p>Keong sawah segar dengan bumbu pedas khas yang menggugah selera. Dimasak dengan resep rahasia turun-temurun yang membuat setiap gigitan penuh rasa.</p>
+       <div class="price">
+        Rp 25.000
+       </div><button class="order-btn" onclick="orderItem('Tutut Pedas', 25000)">Pesan Sekarang</button>
+      </div>
+     </div>
+     <div class="menu-card">
+      <div class="menu-icon">
+       <img src="https://img-global.cpcdn.com/recipes/6f5c975e24291c9d/1200x630cq80/photo.jpg"
+      </div>
+      <div class="menu-content">
+       <h3>Soto Subang</h3>
+       <p>Soto khas Subang dengan kuah bening yang segar, daging sapi empuk, dan sayuran pilihan. Disajikan dengan nasi hangat dan kerupuk renyah.</p>
+       <div class="price">
+        Rp 30.000
+       </div><button class="order-btn" onclick="orderItem('Soto Subang', 30000)">Pesan Sekarang</button>
+      </div>
+     </div>
+     <div class="menu-card">
+      <div class="menu-icon">
+       <img src="https://www.unileverfoodsolutions.co.id/dam/ufs-id/recipes/Sate%20Maranggi.jpg"
+      </div>
+      <div class="menu-content">
+       <h3>Sate Maranggi</h3>
+       <p>Sate daging sapi pilihan dengan bumbu kecap khas yang lezat. Dipanggang sempurna hingga menghasilkan aroma yang menggoda selera.</p>
+       <div class="price">
+        Rp 35.000
+       </div><button class="order-btn" onclick="orderItem('Sate Maranggi', 35000)">Pesan Sekarang</button>
+      </div>
+     </div>
+     <div class="menu-card">
+      <div class="menu-icon">
+       <img src="https://katalog.oleholehkhaslombok.net/wp-content/uploads/2016/06/dodol-nanas-2.jpg"
+      </div>
+      <div class="menu-content">
+       <h3>Dodol Nanas</h3>
+       <p>Oleh-oleh khas Subang yang manis dan legit dari nanas pilihan berkualitas tinggi. Sempurna untuk buah tangan keluarga tercinta.</p>
+       <div class="price">
+        Rp 45.000
+       </div><button class="order-btn" onclick="orderItem('Dodol Nanas', 45000)">Pesan Sekarang</button>
+      </div>
+     </div>
+    </div>
+   </section>
+   <section id="gallery" class="container">
+    <h2 class="section-title" id="gallery-title">Galeri Kuliner</h2>
+    <p class="section-subtitle">Lihat Koleksi Hidangan Lezat Kami</p>
+    <div class="gallery-grid">
+     <div class="gallery-item">
+      <div class="gallery-icon">
+       🌶️
+      </div>
+      <div class="gallery-overlay">
+       <h3>Tutut Pedas</h3>
+       <p>Kelezatan pedas yang tak terlupakan</p>
+      </div>
+     </div>
+     <div class="gallery-item">
+      <div class="gallery-icon">
+       🍲
+      </div>
+      <div class="gallery-overlay">
+       <h3>Soto Subang</h3>
+       <p>Kuah bening yang menyegarkan</p>
+      </div>
+     </div>
+     <div class="gallery-item">
+      <div class="gallery-icon">
+       🍢
+      </div>
+      <div class="gallery-overlay">
+       <h3>Sate Maranggi</h3>
+       <p>Panggang sempurna dengan bumbu khas</p>
+      </div>
+     </div>
+     <div class="gallery-item">
+      <div class="gallery-icon">
+       🍍
+      </div>
+      <div class="gallery-overlay">
+       <h3>Dodol Nanas</h3>
+       <p>Manis legit khas Subang</p>
+      </div>
+     </div>
+     <div class="gallery-item">
+      <div class="gallery-icon">
+       🥘
+      </div>
+      <div class="gallery-overlay">
+       <h3>Hidangan Spesial</h3>
+       <p>Menu pilihan harian</p>
+      </div>
+     </div>
+     <div class="gallery-item">
+      <div class="gallery-icon">
+       🍽️
+      </div>
+      <div class="gallery-overlay">
+       <h3>Paket Lengkap</h3>
+       <p>Kombinasi menu favorit</p>
+      </div>
+     </div>
+    </div>
+   </section>
+   <section id="contact" class="container">
+    <h2 class="section-title" id="contact-title">Hubungi Kami</h2>
+    <p class="section-subtitle">Kami Siap Melayani Anda dengan Sepenuh Hati</p>
+    <div class="contact-wrapper">
+     <div class="contact-info">
+      <div class="contact-item">
+       <div class="contact-icon">
+        📍
+       </div>
+       <div class="contact-details">
+        <h3>Alamat Kami</h3>
+        <p id="address">Jl. Raya Subang No. 123, Subang, Jawa Barat 41200</p>
+       </div>
+      </div>
+      <div class="contact-item">
+       <div class="contact-icon">
+        📞
+       </div>
+       <div class="contact-details">
+        <h3>Telepon</h3>
+        <p id="phone">+62 812-3456-7890</p>
+        <p style="margin-top: 0.5rem;">Senin - Minggu: 08.00 - 21.00 WIB</p>
+       </div>
+      </div>
+      <div class="contact-item">
+       <div class="contact-icon">
+        ✉️
+       </div>
+       <div class="contact-details">
+        <h3>Email</h3>
+        <p id="email">info@kulinersubang.com</p>
+        <p style="margin-top: 0.5rem;">order@kulinersubang.com</p>
+       </div>
+      </div>
+      <div class="contact-item">
+       <div class="contact-icon">
+        📱
+       </div>
+       <div class="contact-details">
+        <h3>Media Sosial</h3>
+        <p>Ikuti kami untuk update terbaru</p>
+        <div class="social-links"><button class="social-btn" onclick="showToast('📷 Instagram: @kulinersubang')" title="Instagram">📷</button> <button class="social-btn" onclick="showToast('👍 Facebook: Kuliner Subang')" title="Facebook">👍</button> <button class="social-btn" onclick="showToast('🐦 Twitter: @kulinersubang')" title="Twitter">🐦</button> <button class="social-btn" onclick="showToast('💬 WhatsApp: +62 812-3456-7890')" title="WhatsApp">💬</button>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="map-container">
+      <div class="map-placeholder">
+       <div class="map-icon">
+        🗺️
+       </div>
+       <h3>Lokasi Kami</h3>
+       <p>Jl. Raya Subang No. 123, Subang, Jawa Barat</p><a href="https://maps.google.com/?q=Subang+Jawa+Barat" target="_blank" rel="noopener noreferrer" class="map-btn">Buka di Google Maps</a>
+      </div>
+     </div>
+    </div>
+    <div class="contact-form">
+     <h3 class="form-title">Kirim Pesan kepada Kami</h3>
+     <form onsubmit="handleSubmit(event)">
+      <div class="form-group"><label for="name">Nama Lengkap</label> <input type="text" id="name" required placeholder="Masukkan nama Anda">
+      </div>
+      <div class="form-group"><label for="contact-email">Email</label> <input type="email" id="contact-email" required placeholder="Masukkan email Anda">
+      </div>
+      <div class="form-group"><label for="contact-phone">Nomor Telepon</label> <input type="tel" id="contact-phone" required placeholder="Masukkan nomor telepon Anda">
+      </div>
+      <div class="form-group"><label for="message">Pesan</label> <textarea id="message" required placeholder="Tuliskan pesan Anda di sini"></textarea>
+      </div><button type="submit" class="submit-btn">Kirim Pesan</button>
+     </form>
+    </div>
+   </section>
+  </main>
+  <footer>
+   <div class="footer-content">
+    <div class="footer-links"><a href="#home">Beranda</a> <a href="#menu">Menu</a> <a href="#gallery">Galeri</a> <a href="#contact">Kontak</a>
+    </div>
+    <div class="footer-text" id="footer-text">
+     © 2024 Kuliner Khas Subang. Kelezatan yang Tak Terlupakan
+    </div>
+   </div>
+  </footer>
+  <div class="toast" id="toast"><span class="toast-icon">✅</span> <span class="toast-message"></span>
+  </div>
+  <script>
+    const defaultConfig = {
+      site_title: "Kuliner Khas Subang",
+      tagline: "Cita Rasa Autentik dari Tanah Subang",
+      menu_title: "Menu Spesial Kami",
+      gallery_title: "Galeri Kuliner",
+      contact_title: "Hubungi Kami",
+      address: "Jl. Raya Subang No. 123, Subang, Jawa Barat 41200",
+      phone: "+62 812-3456-7890",
+      email: "info@kulinersubang.com",
+      footer_text: "© 2024 Kuliner Khas Subang. Kelezatan yang Tak Terlupakan",
+      background_color: "#ffffff",
+      primary_color: "#166534",
+      secondary_color: "#22c55e",
+      text_color: "#1f2937",
+      accent_color: "#86efac",
+      font_family: "Segoe UI",
+      font_size: 16
+    };
+
+    async function onConfigChange(config) {
+      const baseSize = config.font_size || defaultConfig.font_size;
+      const customFont = config.font_family || defaultConfig.font_family;
+      const baseFontStack = 'Tahoma, Geneva, Verdana, sans-serif';
+      
+      document.body.style.fontFamily = `${customFont}, ${baseFontStack}`;
+      document.body.style.fontSize = `${baseSize}px`;
+      document.body.style.backgroundColor = config.background_color || defaultConfig.background_color;
+      document.body.style.color = config.text_color || defaultConfig.text_color;
+
+      document.getElementById('site-title').textContent = config.site_title || defaultConfig.site_title;
+      document.getElementById('site-title-hero').textContent = config.site_title || defaultConfig.site_title;
+      document.getElementById('tagline').textContent = config.tagline || defaultConfig.tagline;
+      document.getElementById('menu-title').textContent = config.menu_title || defaultConfig.menu_title;
+      document.getElementById('gallery-title').textContent = config.gallery_title || defaultConfig.gallery_title;
+      document.getElementById('contact-title').textContent = config.contact_title || defaultConfig.contact_title;
+      document.getElementById('address').textContent = config.address || defaultConfig.address;
+      document.getElementById('phone').textContent = config.phone || defaultConfig.phone;
+      document.getElementById('email').textContent = config.email || defaultConfig.email;
+      document.getElementById('footer-text').textContent = config.footer_text || defaultConfig.footer_text;
+
+      const headers = document.querySelectorAll('header');
+      headers.forEach(header => {
+        header.style.background = `linear-gradient(135deg, ${config.primary_color || defaultConfig.primary_color} 0%, ${config.secondary_color || defaultConfig.secondary_color} 100%)`;
+      });
+
+      const hero = document.querySelector('.hero');
+      if (hero) {
+        const primaryColor = config.primary_color || defaultConfig.primary_color;
+        const secondaryColor = config.secondary_color || defaultConfig.secondary_color;
+        hero.style.background = `linear-gradient(135deg, rgba(22, 101, 52, 0.95) 0%, rgba(21, 128, 61, 0.95) 100%), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 600"><rect fill="${encodeURIComponent(secondaryColor)}" width="1400" height="600"/><circle fill="${encodeURIComponent(primaryColor)}" cx="300" cy="150" r="120" opacity="0.3"/></svg>')`;
+      }
+
+      const heroH1 = document.querySelector('.hero h1');
+      if (heroH1) heroH1.style.fontSize = `${baseSize * 2.1875}px`;
+
+      const heroP = document.querySelector('.hero p');
+      if (heroP) heroP.style.fontSize = `${baseSize * 1.25}px`;
+
+      const sectionTitles = document.querySelectorAll('.section-title');
+      sectionTitles.forEach(title => {
+        title.style.fontSize = `${baseSize * 1.875}px`;
+        title.style.color = config.primary_color || defaultConfig.primary_color;
+      });
+
+      const ctaButtons = document.querySelectorAll('.cta-button');
+      ctaButtons.forEach(btn => {
+        if (!btn.classList.contains('secondary')) {
+          btn.style.background = config.secondary_color || defaultConfig.secondary_color;
+        }
+        btn.style.fontSize = `${baseSize * 1.0625}px`;
+      });
+
+      const menuIcons = document.querySelectorAll('.menu-icon');
+      menuIcons.forEach(icon => {
+        icon.style.background = `linear-gradient(135deg, ${config.secondary_color || defaultConfig.secondary_color} 0%, ${config.primary_color || defaultConfig.primary_color} 100%)`;
+        icon.style.fontSize = `${baseSize * 3.125}px`;
+      });
+
+      const menuH3s = document.querySelectorAll('.menu-content h3');
+      menuH3s.forEach(h3 => {
+        h3.style.color = config.primary_color || defaultConfig.primary_color;
+        h3.style.fontSize = `${baseSize * 1.0625}px`;
+      });
+
+      const prices = document.querySelectorAll('.price');
+      prices.forEach(price => {
+        price.style.color = config.secondary_color || defaultConfig.secondary_color;
+        price.style.fontSize = `${baseSize * 1}px`;
+      });
+
+      const orderBtns = document.querySelectorAll('.order-btn');
+      orderBtns.forEach(btn => {
+        btn.style.background = config.primary_color || defaultConfig.primary_color;
+        btn.style.fontSize = `${baseSize * 1.0625}px`;
+      });
+
+      const galleryIcons = document.querySelectorAll('.gallery-icon');
+      galleryIcons.forEach(icon => {
+        icon.style.fontSize = `${baseSize * 5}px`;
+      });
+
+      const contactIcons = document.querySelectorAll('.contact-icon');
+      contactIcons.forEach(icon => {
+        icon.style.fontSize = `${baseSize * 1.5625}px`;
+        icon.style.color = config.secondary_color || defaultConfig.secondary_color;
+      });
+
+      const contactH3s = document.querySelectorAll('.contact-details h3');
+      contactH3s.forEach(h3 => {
+        h3.style.color = config.primary_color || defaultConfig.primary_color;
+        h3.style.fontSize = `${baseSize * 0.8125}px`;
+      });
+
+      const socialBtns = document.querySelectorAll('.social-btn');
+      socialBtns.forEach(btn => {
+        btn.style.background = config.secondary_color || defaultConfig.secondary_color;
+        btn.style.fontSize = `${baseSize * 0.9375}px`;
+      });
+
+      const mapBtn = document.querySelector('.map-btn');
+      if (mapBtn) {
+        mapBtn.style.background = config.secondary_color || defaultConfig.secondary_color;
+        mapBtn.style.fontSize = `${baseSize * 1.0625}px`;
+      }
+
+      const mapIcon = document.querySelector('.map-icon');
+      if (mapIcon) {
+        mapIcon.style.fontSize = `${baseSize * 3.75}px`;
+        mapIcon.style.color = config.secondary_color || defaultConfig.secondary_color;
+      }
+
+      const mapPlaceholderH3 = document.querySelector('.map-placeholder h3');
+      if (mapPlaceholderH3) {
+        mapPlaceholderH3.style.color = config.primary_color || defaultConfig.primary_color;
+        mapPlaceholderH3.style.fontSize = `${baseSize * 1.125}px`;
+      }
+
+      const formTitle = document.querySelector('.form-title');
+      if (formTitle) {
+        formTitle.style.color = config.primary_color || defaultConfig.primary_color;
+        formTitle.style.fontSize = `${baseSize * 1.25}px`;
+      }
+
+      const labels = document.querySelectorAll('.form-group label');
+      labels.forEach(label => {
+        label.style.color = config.primary_color || defaultConfig.primary_color;
+        label.style.fontSize = `${baseSize * 1.0625}px`;
+      });
+
+      const submitBtn = document.querySelector('.submit-btn');
+      if (submitBtn) {
+        submitBtn.style.background = config.primary_color || defaultConfig.primary_color;
+        submitBtn.style.fontSize = `${baseSize * 1.0625}px`;
+      }
+
+      const footer = document.querySelector('footer');
+      if (footer) {
+        footer.style.background = `linear-gradient(135deg, ${config.primary_color || defaultConfig.primary_color} 0%, ${config.secondary_color || defaultConfig.secondary_color} 100%)`;
+      }
+
+      const toast = document.getElementById('toast');
+      if (toast) {
+        toast.style.background = `linear-gradient(135deg, ${config.primary_color || defaultConfig.primary_color} 0%, ${config.secondary_color || defaultConfig.secondary_color} 100%)`;
+      }
+    }
+
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange,
+        mapToCapabilities: (config) => ({
+          recolorables: [
+            {
+              get: () => config.background_color || defaultConfig.background_color,
+              set: (value) => {
+                config.background_color = value;
+                window.elementSdk.setConfig({ background_color: value });
+              }
+            },
+            {
+              get: () => config.primary_color || defaultConfig.primary_color,
+              set: (value) => {
+                config.primary_color = value;
+                window.elementSdk.setConfig({ primary_color: value });
+              }
+            },
+            {
+              get: () => config.text_color || defaultConfig.text_color,
+              set: (value) => {
+                config.text_color = value;
+                window.elementSdk.setConfig({ text_color: value });
+              }
+            },
+            {
+              get: () => config.secondary_color || defaultConfig.secondary_color,
+              set: (value) => {
+                config.secondary_color = value;
+                window.elementSdk.setConfig({ secondary_color: value });
+              }
+            },
+            {
+              get: () => config.accent_color || defaultConfig.accent_color,
+              set: (value) => {
+                config.accent_color = value;
+                window.elementSdk.setConfig({ accent_color: value });
+              }
+            }
+          ],
+          borderables: [],
+          fontEditable: {
+            get: () => config.font_family || defaultConfig.font_family,
+            set: (value) => {
+              config.font_family = value;
+              window.elementSdk.setConfig({ font_family: value });
+            }
+          },
+          fontSizeable: {
+            get: () => config.font_size || defaultConfig.font_size,
+            set: (value) => {
+              config.font_size = value;
+              window.elementSdk.setConfig({ font_size: value });
+            }
+          }
+        }),
+        mapToEditPanelValues: (config) => new Map([
+          ["site_title", config.site_title || defaultConfig.site_title],
+          ["tagline", config.tagline || defaultConfig.tagline],
+          ["menu_title", config.menu_title || defaultConfig.menu_title],
+          ["gallery_title", config.gallery_title || defaultConfig.gallery_title],
+          ["contact_title", config.contact_title || defaultConfig.contact_title],
+          ["address", config.address || defaultConfig.address],
+          ["phone", config.phone || defaultConfig.phone],
+          ["email", config.email || defaultConfig.email],
+          ["footer_text", config.footer_text || defaultConfig.footer_text]
+        ])
+      });
+    }
+
+    function toggleMenu() {
+      const menu = document.getElementById('nav-menu');
+      menu.classList.toggle('active');
+    }
+
+    function scrollToSection(sectionId) {
+      const section = document.getElementById(sectionId);
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+        const menu = document.getElementById('nav-menu');
+        menu.classList.remove('active');
+      }
+    }
+
+    function orderItem(itemName, price) {
+      showToast(`✅ ${itemName} (Rp ${price.toLocaleString('id-ID')}) telah ditambahkan! Silakan hubungi kami untuk konfirmasi pesanan.`);
+    }
+
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      const toastMessage = toast.querySelector('.toast-message');
+      toastMessage.textContent = message;
+      toast.classList.add('show');
+      
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 4000);
+    }
+
+    function handleSubmit(event) {
+      event.preventDefault();
+      
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('contact-email').value;
+      const phone = document.getElementById('contact-phone').value;
+      const message = document.getElementById('message').value;
+      
+      showToast(`✅ Terima kasih ${name}! Pesan Anda telah dikirim. Kami akan segera menghubungi Anda.`);
+      
+      event.target.reset();
+    }
+
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute('href').substring(1);
+        scrollToSection(targetId);
+      });
+    });
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9a1dd7308200fda4',t:'MTc2MzcwMzUwMy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
